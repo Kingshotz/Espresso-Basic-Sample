@@ -44,21 +44,21 @@ public final class ChangeTextBehaviorLocalTest {
   }
 
   @Test
-  public void changeText_sameActivity() {
+  public void changeTextAndVerify() {
     // Type text and then press the button.
     onView(withId(R.id.editTextUserInput))
-            .perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard());
+            .perform(typeText("Lobio"), closeSoftKeyboard());
 
     onView(withId(R.id.changeTextBt)).perform(click());
 
     // Check that the text was changed.
-    onView(withId(R.id.textToBeChanged)).check(matches(withText(STRING_TO_BE_TYPED)));
+    onView(withId(R.id.textToBeChanged)).check(matches(withText("Lobio")));
   }
 
   @Test
-  public void changeText_newActivity() {
+  public void changeTextAndVerifyActivity() {
     // Type text and then press the button.
-    onView(withId(R.id.editTextUserInput)).perform(typeText(STRING_TO_BE_TYPED),
+    onView(withId(R.id.editTextUserInput)).perform(typeText("The Devil's Advocate"),
         closeSoftKeyboard());
     onView(withId(R.id.activityChangeTextBtn)).perform(click());
 
